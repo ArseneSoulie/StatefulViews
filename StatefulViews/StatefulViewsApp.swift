@@ -11,7 +11,7 @@ import SwiftUI
 struct StatefulViewsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewModel: .init(interactor: .init(service: .init())))
         }
     }
 }
