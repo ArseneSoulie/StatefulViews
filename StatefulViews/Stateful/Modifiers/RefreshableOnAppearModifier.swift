@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct RefreshableOnAppearModifier: ViewModifier {
+struct OnAppearAndRefreshableModifier: ViewModifier {
     @State private var task: Task<Void, Never>?
     let action: () async -> Void
 
@@ -31,7 +31,7 @@ struct RefreshableOnAppearModifier: ViewModifier {
 }
 
 public extension View {
-    func refreshableOnAppear(action: @escaping () async -> Void) -> some View {
-        self.modifier(RefreshableOnAppearModifier(action: action))
+    func onAppearAndRefresh(action: @escaping () async -> Void) -> some View {
+        self.modifier(OnAppearAndRefreshableModifier(action: action))
     }
 }

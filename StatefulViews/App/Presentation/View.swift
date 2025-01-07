@@ -4,18 +4,18 @@ struct ContentView: View {
     @State var viewModel: ViewModel
     var body: some View {
         StatefulView(viewState: $viewModel.viewState) { data in
-                List {
-                    ForEach(data.todos) { todo in
-                        HStack {
-                            if todo.completed {
-                                Image(systemName: "checkmark.circle.fill").foregroundStyle(.green)
-                            } else {
-                                Image(systemName: "xmark.circle")
-                            }
-                            Text(todo.title)
-                        }
+            ForEach(data.todos) { todo in
+                HStack {
+                    if todo.completed {
+                        Image(systemName: "checkmark.circle.fill").foregroundStyle(.green)
+                    } else {
+                        Image(systemName: "xmark.circle")
                     }
-                }
-        }.refreshableOnAppear(action: viewModel.fetchData)
+                    Text(todo.title)
+                    Spacer()
+                }.padding()
+                Divider()
+            }
+        }.onAppearAndRefresh(action: viewModel.fetchData)
     }
 }

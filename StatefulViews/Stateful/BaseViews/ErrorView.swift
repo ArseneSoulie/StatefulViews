@@ -3,7 +3,6 @@ import SwiftUI
 struct ErrorView: View {
     let errorData: ViewModelError
     var body: some View {
-        ScrollView {
             VStack {
                 Text("Pull to refresh ⬇️")
                     .italic()
@@ -13,7 +12,6 @@ struct ErrorView: View {
                     .foregroundStyle(.red)
                     .frame(width: 64, height: 64)
                 Text(errorData.message)
-            }
         }
     }
 }
