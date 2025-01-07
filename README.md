@@ -29,10 +29,10 @@ struct ContentView: View {
                     }
                 }
             }
-        }.refreshableOnAppear(action: viewModel.fetchData)
+        }.onAppearAndRefresh(action: viewModel.fetchData)
     }
 }
 
 ```
 
-The refreshableOnAppear modifier allows you to fetch the data on the onAppear and refresh when you pull on the view
+The onAppearAndRefresh modifier allows you to fetch the data on the onAppear and refresh when you pull on the view
